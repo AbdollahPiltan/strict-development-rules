@@ -44,6 +44,12 @@ Complete each assigned task end-to-end with minimal unnecessary model, context, 
 - **AUT-09 — Autonomous execution:** Proceed autonomously on documented tasks within the authorized scope. Avoid unnecessary progress messages, lengthy routine explanations, and excessive terminal output. Keep required updates and material findings, blockers, or decisions clear and concise.
 - **AUT-10 — Final report:** State task status, changed files, verification passed/failed/not run, commit hash and branch, and remaining blockers, if any. Do not claim completion when required work remains.
 
+### Project startup and checkpoints
+
+- **AUT-11 — Reusable startup:** For a new project or incomplete setup, use the project-start guide to establish specifications, Git identity, the intended remote, and authorized repository settings. Keep product decisions and progress in the project's `PROJECT.md` or existing equivalent; do not duplicate policy or reload startup guidance for every routine task.
+- **AUT-12 — Milestone commits:** Create one or more coherent, verified commits for each completed milestone, with meaningful messages describing the scope and outcome. Follow existing commit conventions, or use `<type>(<scope>): <outcome>`. Push authorized checkpoints to the feature branch and record their references and checks; avoid empty commits and self-referential commit-hash updates.
+- **AUT-13 — Recoverable history:** Preserve checkpoint traceability through the chosen PR merge strategy. Prefer new revert commits for undoing published changes, inspect dependencies and merge parents, and never force-push shared rollback history. Git checkpoints do not restore databases, external effects, or deployed state; document compatible recovery steps where relevant.
+
 ### Execution workflow
 
 Use this sequence for the assigned task, or the next documented task when instructed to continue:
