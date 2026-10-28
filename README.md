@@ -10,6 +10,7 @@ A documentation-only repository for developers, reviewers, and AI coding assista
 
 | Area | Focus |
 | --- | --- |
+| Autonomous development | Focused context, dependency reuse, proportionate verification, and feature-branch delivery |
 | Architecture | SOLID, clear responsibilities, module boundaries, and appropriate complexity |
 | Code organization | Meaningful names, cohesive files, and predictable folders |
 | APIs | Controlled entry points, contracts, authorization, and bounded requests |
@@ -31,7 +32,7 @@ The rules file includes its MIT license notice so it can be copied as one self-c
 
 For an AI assistant, use this instruction:
 
-> Read AGENTS.md and follow all applicable rules throughout this task. Before editing, identify the relevant project conventions. Verify the change with proportionate checks, and report any unresolved issue or justified exception using its rule ID.
+> Execute the assigned task, or the next documented task when instructed to continue, using AGENTS.md and its Autonomous Development Policy. Use existing specifications, architecture, and acceptance criteria. Follow the documented workflow and final-report format; do not ask questions already answered in the project documentation.
 
 Codex supports project instructions in `AGENTS.md`; see the [official guide](https://learn.chatgpt.com/docs/agent-configuration/agents-md). For other tools, use their documented project-instruction mechanism or explicitly attach the file. Recognition of this filename is tool-specific.
 
