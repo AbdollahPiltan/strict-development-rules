@@ -1,6 +1,8 @@
-# Project Brief and Progress
+# Project Brief and Milestones
 
 Fill this file once, then update decisions and milestones as the project evolves. Engineering rules belong in `AGENTS.md`; reference them instead of copying them here. Replace unset values with decisions, links to existing specifications, or explicit reasons for non-applicability.
+
+Keep the active task, current branch/worktree anchor, immediate next action, and detailed check results in `MEMORY.md`; use `docs/PROJECT-GRAPH.md` for component/check navigation. This file owns the durable requirements, milestone ledger, and recovery constraints. Reference current evidence instead of copying it between files.
 
 ## Product
 
@@ -11,7 +13,7 @@ Fill this file once, then update decisions and milestones as the project evolves
 | Minimum useful scope | To be defined |
 | Explicit exclusions | To be defined |
 | Product specifications and acceptance criteria | To be defined or linked |
-| Current assigned task / next milestone | To be defined |
+| Current work and next-action snapshot | `MEMORY.md` or an existing equivalent |
 
 ## Setup and authorization
 
@@ -24,7 +26,7 @@ Fill this file once, then update decisions and milestones as the project evolves
 | Repository visibility | Private until a public decision is documented |
 | Remote name and URL | To be verified |
 | Default branch | To be verified; do not assume `main` |
-| Feature branch | To be defined or reused |
+| Branch convention | Dedicated feature branches; current branch recorded in the snapshot |
 | Commit identity | Verified name and email/noreply; no credentials |
 | Authorized repository, cloud, and publication actions | To be defined; unresolved actions are not authorized by this template |
 | PR, review, and merge requirements | To be verified |
@@ -45,7 +47,7 @@ Fill this file once, then update decisions and milestones as the project evolves
 
 Adapt milestones to the product. Each completed phase must have a coherent, verified commit and a remote checkpoint when pushing is authorized. Status values: planned, in progress, verified, published, blocked, or not applicable with a reason.
 
-| Milestone | Acceptance criteria / specification | Status | Checks and outcome | Commit / branch / PR |
+| Milestone | Acceptance criteria / specification | Status | Verification evidence reference | Commit / branch / PR |
 | --- | --- | --- | --- | --- |
 | Project definition | Define outcome, scope, and acceptance criteria | Planned | Pending | Pending |
 | Repository bootstrap | Verify policy, identity, remote, and ignore rules | Planned | Pending | Pending |
@@ -64,7 +66,7 @@ Record a milestone's own commit hash in the PR/final report or the next normal u
 
 ## Recovery notes
 
-- Last verified checkpoint and its verification evidence: to be recorded.
+- Last verified checkpoint and its evidence: reference the snapshot or PR; do not duplicate the run log.
 - Relevant dependencies between milestone commits: to be recorded.
 - Changes outside tracked files, including data or deployment state: to be recorded where applicable.
 - Rollback approach and checks that establish recovery: to be recorded.
