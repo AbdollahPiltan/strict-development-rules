@@ -10,6 +10,53 @@ Apply these rules throughout design, implementation, review, and delivery of sof
 
 “Strict” describes adherence to applicable engineering rules; it is independent of any language's strict-mode setting. Prefer the smallest sound implementation. Do not introduce an architecture, dependency, test suite, or service solely to satisfy a rule that does not apply.
 
+## Autonomous Development Policy
+
+### Goal
+
+Complete each assigned task end-to-end with minimal unnecessary model, context, and tool usage. Efficiency MUST NOT reduce correctness, security, error handling, or required verification.
+
+### Context
+
+- **AUT-01 — Documented requirements:** Use existing project specifications, architecture, and acceptance criteria as the source of truth, subject to instruction priority. Do not ask questions already answered there; clarify only material gaps or conflicts that cannot be resolved from the available context.
+- **AUT-02 — Focused inspection:** Inspect task-relevant files first and expand only when dependencies or findings require it. Read architecture and database documents when relevant. Avoid repeated full-repository exploration and re-reading unchanged files; refresh context when files change, previous context is unavailable, or a finding needs confirmation.
+
+### Development
+
+- **AUT-03 — Complete, scoped work:** Follow existing architecture and conventions, reuse suitable components, and implement all acceptance criteria. Avoid unrelated refactoring and speculative abstractions. Apply the relevant engineering and security rules below throughout implementation.
+
+### Dependencies
+
+- **AUT-04 — Reuse before adding:** Check installed packages before adding dependencies. Prefer existing compatible libraries and do not add packages solely for trivial utilities.
+
+### Verification
+
+- **AUT-05 — Proportionate checks:** Run relevant tests or documentation checks first. Run broader checks when the change, repository requirements, failures, or remaining risks warrant them. Prefer concise diagnostic output and avoid repeated full builds without new justification. Never skip required verification to save tokens or time.
+- **AUT-06 — Diagnose before retrying:** Fix failures introduced by the task. Investigate repeated failures before another attempt; do not retry unchanged actions without new diagnostics or a changed condition. Distinguish existing failures from task regressions. If a blocker remains unresolved, stop dependent work and report the issue instead of making speculative changes; finish independent authorized work where possible.
+
+### Git
+
+- **AUT-07 — Feature branches:** Work on a dedicated feature branch. Never force-push or push directly to `main` or the repository's default branch. Deliver default-branch changes through the repository's pull-request process.
+- **AUT-08 — Verified commits:** Inspect the final diff before committing. Commit only intended, verified changes; never include secrets, generated junk, or unrelated user changes. Commit and push to the feature branch when task authorization and repository permissions allow it. If verification, commit, or push is blocked, report the exact incomplete step.
+
+### Communication
+
+- **AUT-09 — Autonomous execution:** Proceed autonomously on documented tasks within the authorized scope. Avoid unnecessary progress messages, lengthy routine explanations, and excessive terminal output. Keep required updates and material findings, blockers, or decisions clear and concise.
+- **AUT-10 — Final report:** State task status, changed files, verification passed/failed/not run, commit hash and branch, and remaining blockers, if any. Do not claim completion when required work remains.
+
+### Execution workflow
+
+Use this sequence for the assigned task, or the next documented task when instructed to continue:
+
+1. Identify scope, applicable specifications, and acceptance criteria.
+2. Inspect the relevant files and expand context only as needed.
+3. Implement the complete change under existing conventions and applicable rules.
+4. Confirm existing dependencies meet the need before adding any package.
+5. Run targeted verification and any required broader checks.
+6. Diagnose and fix task-related failures; report unresolved blockers.
+7. Review the final diff against scope, security, and acceptance criteria.
+8. Commit and push verified changes to the feature branch under AUT-07 and AUT-08, then provide the concise final report.
+
 ## Project decisions
 
 Complete this table in an adopting project. An unset value is an open decision, not an established requirement. Review repository conventions before filling it in; do not invent performance targets or deployment facts.
