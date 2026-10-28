@@ -12,6 +12,7 @@ A documentation-only repository for developers, reviewers, and AI coding assista
 | --- | --- |
 | Autonomous development | Focused context, dependency reuse, proportionate verification, and feature-branch delivery |
 | Project startup | Reusable brief, Git/GitHub setup, meaningful milestone commits, and recovery |
+| Persistent context | Compact working memory, evidence freshness, and a module/check navigation graph |
 | Architecture | SOLID, clear responsibilities, module boundaries, and appropriate complexity |
 | Code organization | Meaningful names, cohesive files, and predictable folders |
 | APIs | Controlled entry points, contracts, authorization, and bounded requests |
@@ -26,11 +27,17 @@ A documentation-only repository for developers, reviewers, and AI coding assista
 
 Follow [Start a Project](PROJECT-START.md) to create or connect a GitHub repository, establish Git identity and remotes, and develop through verified milestone commits.
 
-Copy [AGENTS.md](AGENTS.md) and [templates/PROJECT.md](templates/PROJECT.md) into your project root, naming the latter `PROJECT.md`. Fill in the product brief once and use the startup prompt in the guide. On later tasks, a short instruction is enough:
+Copy [AGENTS.md](AGENTS.md), [templates/PROJECT.md](templates/PROJECT.md), and [templates/MEMORY.md](templates/MEMORY.md) into your project root, removing the `templates/` prefix. Copy the [graph template](templates/docs/PROJECT-GRAPH.md) to `docs/PROJECT-GRAPH.md`. Fill in the known requirements once, initialize only the relevant map/snapshot scope, and use the startup prompt in the guide. On later tasks, a short instruction is enough:
 
-> Continue the next incomplete milestone in PROJECT.md under AGENTS.md.
+> Follow AGENTS.md, reconcile MEMORY.md with Git, and continue the next incomplete milestone in PROJECT.md using the relevant graph entries.
 
 The guide covers feature branches, meaningful commit names, checkpoint references, PR merge strategies, and reverting published changes. It includes command examples without adding executable scripts or a fixed application stack.
+
+## Resume without restarting discovery
+
+The working snapshot records what changed, why, what was actually checked, and what comes next. The graph points to important components, dependencies, and related checks. Before reuse, compare the recorded commit/branch and local work with Git; stale or missing context needs a focused refresh. Historical test passes do not replace required verification after relevant changes.
+
+Use the reusable templates for your product. The populated [MEMORY.md](MEMORY.md) and [repository graph](docs/PROJECT-GRAPH.md) describe this documentation repository only. Keep policy, product requirements, current state, and navigation separate; avoid duplicating logs or requirements. See the [resume workflow](PROJECT-START.md#resume-from-memory-and-the-graph).
 
 ## Use the rules in an existing project
 
@@ -69,6 +76,10 @@ The rules are engineering guidance. They do not certify security, guarantee prot
 | [AGENTS.md](AGENTS.md) | Portable rules, project decisions, and acceptance checklist |
 | [PROJECT-START.md](PROJECT-START.md) | Startup prompt, Git/GitHub setup, milestone workflow, and recovery guide |
 | [templates/PROJECT.md](templates/PROJECT.md) | Copyable project brief, setup decisions, milestone ledger, and recovery notes |
+| [templates/MEMORY.md](templates/MEMORY.md) | Copyable current-state snapshot and verification evidence |
+| [templates/docs/PROJECT-GRAPH.md](templates/docs/PROJECT-GRAPH.md) | Copyable component, dependency, and check map |
+| [MEMORY.md](MEMORY.md) | Populated working snapshot for this repository |
+| [docs/PROJECT-GRAPH.md](docs/PROJECT-GRAPH.md) | Populated navigation and check map for this repository |
 | [CONTRIBUTING.md](CONTRIBUTING.md) | How to propose, evaluate, and revise rules |
 | [CHANGELOG.md](CHANGELOG.md) | Meaningful policy changes |
 | [LICENSE](LICENSE) | MIT license |

@@ -50,18 +50,26 @@ Complete each assigned task end-to-end with minimal unnecessary model, context, 
 - **AUT-12 — Milestone commits:** Create one or more coherent, verified commits for each completed milestone, with meaningful messages describing the scope and outcome. Follow existing commit conventions, or use `<type>(<scope>): <outcome>`. Push authorized checkpoints to the feature branch and record their references and checks; avoid empty commits and self-referential commit-hash updates.
 - **AUT-13 — Recoverable history:** Preserve checkpoint traceability through the chosen PR merge strategy. Prefer new revert commits for undoing published changes, inspect dependencies and merge parents, and never force-push shared rollback history. Git checkpoints do not restore databases, external effects, or deployed state; document compatible recovery steps where relevant.
 
+### Persistent context and project graph
+
+- **CTX-01 — Context ownership:** Use `MEMORY.md` or an existing equivalent for a compact working snapshot, `PROJECT.md` or existing specifications for requirements and milestone history, and `docs/PROJECT-GRAPH.md` or an equivalent map for navigation. Reference these sources instead of duplicating their contents; load only the relevant sections after the applicable instructions.
+- **CTX-02 — Freshness before reuse:** Compare the snapshot's recorded repository, branch, and inspected commit with current Git state, including staged, unstaged, and untracked work. A missing anchor, changed branch, or relevant code/configuration/dependency change requires scoped reconciliation. Do not silently trust stale memory or restart full-repository exploration when a focused refresh is sufficient.
+- **CTX-03 — Verification provenance:** Record check commands, outcomes including failed/not run, the actual tested commit or explicit dirty-tree scope, relevant environment, and evidence references. Do not describe a baseline commit as tested when checks included uncommitted edits. Earlier passing results do not establish correctness after relevant changes; run required checks and record what remains unverified.
+- **CTX-04 — Bounded maintenance:** Update the snapshot at meaningful checkpoints, blockers, and handoffs; update affected graph entries only when structure, paths, dependencies, or check mappings change. Keep summaries small and point to commits, PRs, or detailed evidence. Do not store transcripts, full logs, secrets, or copied untrusted instructions, and do not create commit loops to record a snapshot's own hash.
+- **CTX-05 — Evidence-backed graph:** Map verified modules, entry points, important paths, dependencies, and relevant checks. Label planned or unknown relationships explicitly; templates are not facts about the project. Use the graph to guide inspection, not as proof that no other files or tests are affected. No graph database, vector store, or additional service is required by this policy.
+
 ### Execution workflow
 
 Use this sequence for the assigned task, or the next documented task when instructed to continue:
 
 1. Identify scope, applicable specifications, and acceptance criteria.
-2. Inspect the relevant files and expand context only as needed.
+2. Reconcile the working snapshot with Git, consult relevant graph entries, and inspect the necessary files; expand context only as needed.
 3. Implement the complete change under existing conventions and applicable rules.
 4. Confirm existing dependencies meet the need before adding any package.
 5. Run targeted verification and any required broader checks.
 6. Diagnose and fix task-related failures; report unresolved blockers.
 7. Review the final diff against scope, security, and acceptance criteria.
-8. Commit and push verified changes to the feature branch under AUT-07 and AUT-08, then provide the concise final report.
+8. Refresh the working snapshot and any affected graph entries, commit and push verified changes under AUT-07 and AUT-08, and provide the concise final report with checkpoint references.
 
 ## Project decisions
 

@@ -6,11 +6,24 @@ Start from an empty directory or adopt the policy in an existing project without
 
 1. Copy [AGENTS.md](AGENTS.md) into the target project root. Merge with existing instructions instead of overwriting them.
 2. Copy [templates/PROJECT.md](templates/PROJECT.md) to the target root as `PROJECT.md` and fill in the known project requirements once.
-3. Use the prompt below. Consult this guide during initial setup or when a setup step is incomplete; it does not need to be loaded for every implementation task.
+3. Copy [templates/MEMORY.md](templates/MEMORY.md) to the target root as `MEMORY.md`, and [templates/docs/PROJECT-GRAPH.md](templates/docs/PROJECT-GRAPH.md) to `docs/PROJECT-GRAPH.md`. Merge existing equivalents instead of creating duplicate records. These are templates; do not copy this repository's populated snapshot or documentation graph as facts about your product.
+4. Use the prompt below. Consult this guide during initial setup or when a setup step is incomplete; it does not need to be loaded for every implementation task.
 
-> Read AGENTS.md and the relevant parts of PROJECT.md. Start or resume the next incomplete milestone using the existing specifications and acceptance criteria. Complete and verify that milestone, review its diff, and commit and push it on a dedicated feature branch with a meaningful message. Record progress and checkpoint references without repeating unchanged requirements. Continue through the authorized milestones, respect pull-request requirements, and report status, checks, commits, branches, and blockers concisely. Ask only about material unresolved requirements or permissions.
+> Follow AGENTS.md. Read the small MEMORY.md snapshot if present, reconcile its anchor with Git and local changes, and consult only relevant graph entries and PROJECT.md specifications. Start or resume the next incomplete milestone; implement and verify it, refresh context records, review the diff, and commit and push on a dedicated feature branch. Continue through authorized milestones and report checkpoint references and blockers concisely. Ask only about material unresolved requirements or permissions.
 
-`AGENTS.md` owns engineering policy. `PROJECT.md` owns product requirements, setup decisions, milestone status, and recovery notes. Link to existing specifications rather than duplicating them. A filled project brief becomes durable context; an empty template is not a requirement to invent a product or technology stack.
+`AGENTS.md` owns policy. `PROJECT.md` owns product requirements, durable decisions, milestone history, and recovery constraints. `MEMORY.md` owns the current work snapshot and verification evidence. `docs/PROJECT-GRAPH.md` maps important paths, dependencies, and related checks. Link between these sources rather than duplicating them. Empty templates do not establish a product, architecture, implemented component, or passing test.
+
+## Resume from memory and the graph
+
+1. Read the applicable instructions, the small snapshot, and the current task's specification. If context files are missing, initialize only the relevant scope from evidence; do not scan all code to fill every placeholder.
+2. Check repository, branch, current commit, staged/unstaged changes, and relevant untracked files. Compare them with the snapshot anchor. Inspect changed paths since the recorded commit when it is available; reconcile missing history or different branches explicitly.
+3. Consult the relevant graph rows to locate entry points, likely dependencies/callers, and checks. Verify them against actual files. Treat unknown or planned edges as gaps, not implemented facts or proof that unrelated tests can be skipped.
+4. Implement and run required targeted checks. Record each command, result, tested commit or explicit dirty scope, relevant environment, and evidence reference. Code, configuration, or dependency changes can invalidate earlier results; rerun applicable checks rather than relabeling an old pass.
+5. At a meaningful checkpoint, update the snapshot's result, approach, next action, and blockers. Update only graph entries affected by structural/path/check-mapping changes. Keep durable milestone history in `PROJECT.md` and link to it from the snapshot.
+
+Do not append full logs or conversations. Keep a compact active snapshot and move detail to existing decision or PR evidence. Record an already existing inspected/tested commit, not a future hash for the snapshot's own commit; use a later normal update or PR to associate its final checkpoint. On stale context, refresh the affected area rather than blindly trusting the record or restarting exploration of the whole repository.
+
+The populated [repository memory](MEMORY.md) and [repository graph](docs/PROJECT-GRAPH.md) are examples for this documentation project. They are not the files to adopt into a different application. This workflow requires no external memory service and makes no fixed token-savings promise.
 
 ## 1. Define the project boundary
 
@@ -118,7 +131,7 @@ At each milestone:
 3. Run required targeted checks; broaden only when justified.
 4. Review changed and staged files for correctness, secrets, scope, and documentation.
 5. Commit with a meaningful message and push the feature branch.
-6. Record the result, checks, and checkpoint reference in `PROJECT.md` or the pull request. Continue only when the next milestone's prerequisites are satisfied.
+6. Update the current snapshot and verification evidence, record milestone status and checkpoint references in `PROJECT.md` or the PR, and refresh graph entries only when affected. Continue only when the next milestone's prerequisites are satisfied.
 
 Use `<type>(<scope>): <outcome>` when the project has no established commit convention. Common types include `docs`, `chore`, `feat`, `fix`, `test`, and `refactor`. Avoid messages such as `update`, `changes`, and `final` without a concrete outcome. See [Conventional Commits](https://www.conventionalcommits.org/en/v1.0.0/) for the optional standard.
 
