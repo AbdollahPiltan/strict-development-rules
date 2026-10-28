@@ -2,15 +2,16 @@
 
 Practical engineering rules for secure, maintainable, resource-efficient software.
 
-A documentation-only repository for developers, reviewers, and AI coding assistants. Adopt one file, adapt it to your project, and turn applicable rules into checks your team can verify.
+A documentation-only repository for developers, reviewers, and AI coding assistants. Adopt the policy as one file, add a project brief when starting from scratch, and turn applicable rules into checks your team can verify.
 
-**[Read and adopt the rules →](AGENTS.md)**
+**[Start a project →](PROJECT-START.md)** · **[Read and adopt the rules →](AGENTS.md)**
 
 ## What the rules cover
 
 | Area | Focus |
 | --- | --- |
 | Autonomous development | Focused context, dependency reuse, proportionate verification, and feature-branch delivery |
+| Project startup | Reusable brief, Git/GitHub setup, meaningful milestone commits, and recovery |
 | Architecture | SOLID, clear responsibilities, module boundaries, and appropriate complexity |
 | Code organization | Meaningful names, cohesive files, and predictable folders |
 | APIs | Controlled entry points, contracts, authorization, and bounded requests |
@@ -21,7 +22,17 @@ A documentation-only repository for developers, reviewers, and AI coding assista
 | Resources | Bounded concurrency, memory limits, cancellation, and measured performance |
 | Delivery | Meaningful tests, automated checks, observability, and recovery |
 
-## Use in a project
+## Start a new project
+
+Follow [Start a Project](PROJECT-START.md) to create or connect a GitHub repository, establish Git identity and remotes, and develop through verified milestone commits.
+
+Copy [AGENTS.md](AGENTS.md) and [templates/PROJECT.md](templates/PROJECT.md) into your project root, naming the latter `PROJECT.md`. Fill in the product brief once and use the startup prompt in the guide. On later tasks, a short instruction is enough:
+
+> Continue the next incomplete milestone in PROJECT.md under AGENTS.md.
+
+The guide covers feature branches, meaningful commit names, checkpoint references, PR merge strategies, and reverting published changes. It includes command examples without adding executable scripts or a fixed application stack.
+
+## Use the rules in an existing project
 
 1. Open [AGENTS.md](AGENTS.md), select its raw view, and save it as `AGENTS.md` in your project root.
 2. If your project already has an instructions file, merge the relevant rules into it. Preserve existing project-specific requirements.
@@ -56,6 +67,8 @@ The rules are engineering guidance. They do not certify security, guarantee prot
 | File | Purpose |
 | --- | --- |
 | [AGENTS.md](AGENTS.md) | Portable rules, project decisions, and acceptance checklist |
+| [PROJECT-START.md](PROJECT-START.md) | Startup prompt, Git/GitHub setup, milestone workflow, and recovery guide |
+| [templates/PROJECT.md](templates/PROJECT.md) | Copyable project brief, setup decisions, milestone ledger, and recovery notes |
 | [CONTRIBUTING.md](CONTRIBUTING.md) | How to propose, evaluate, and revise rules |
 | [CHANGELOG.md](CHANGELOG.md) | Meaningful policy changes |
 | [LICENSE](LICENSE) | MIT license |

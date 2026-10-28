@@ -6,6 +6,9 @@ Record material rule additions, meaning changes, and retirements here. Rule IDs 
 
 ### Added
 
+- A reusable project-start guide with a short activation prompt, Git/GitHub authentication and repository setup, meaningful milestone commits, and checkpoint recovery.
+- A copyable `PROJECT.md` template for product requirements, setup authorization, verification, milestone references, and recovery constraints.
+- Startup and checkpoint rules AUT-11 through AUT-13, including verification at each milestone, traceability across merge strategies, and history-preserving rollback guidance.
 - Autonomous Development Policy (AUT-01 through AUT-10): focused inspection, dependency reuse, targeted verification, diagnosis before retries, autonomous communication, and concise final reports.
 - A single execution workflow in `AGENTS.md`, referenced by the README adoption prompt to avoid duplicating instructions.
 - Feature-branch delivery requirements: inspect diffs, commit and push verified changes, never force-push, and use pull requests for default-branch updates.
